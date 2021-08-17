@@ -44,6 +44,13 @@ Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added righ
 </body>
 ```
 
+After you have embedded QButterfly in all html files open qbutterfly.js. Replace https://immzhaw.eu.qualtrics.com with the name of your own Qualtrics domain that you are using to run surveys.
+
+```javascript
+var qualtricsURL = "https://immzhaw.eu.qualtrics.com";
+```
+
+
 ### Re-enable the Qualtrics next button after website presentation
 
 When your website is presented via Qualtrics the next button of your survey is hidden by default. If you want to always display the next button, remove the following line of code from the JavaScript of the "Website" question in Qualtrics.

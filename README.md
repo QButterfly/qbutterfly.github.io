@@ -60,7 +60,7 @@ By default the next button is displayed automatically after 30 seconds. Remove t
 setTimeout(function() { jQuery("#NextButton").show(); },30000);
 ```
 
-You can also active the next button via a specific user click on your website.
+You can also activate the next button via a specific user click on your website.
 
 Simply add the class "enableNextButton" behind "reactOnClick" in your html code.
 

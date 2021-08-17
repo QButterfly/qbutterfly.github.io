@@ -66,7 +66,7 @@ Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added righ
 </body>
 ```
 
-### Next Button
+### Enable the Qualtrics Next Button
 
 When your website is presented via Qualtrics the next button of your survey is hidden by default. If you want to always display the next button, remove the following line of code from the JavaScript of the "Website" question in Qualtrics.
 
@@ -90,7 +90,7 @@ Simply add the class "enableNextButton" behind "reactOnClick" in your html code.
 <a><div id="MyButton" class="reactOnClick enableNextButton">MyButton</div></a>
 ```
 
-### Running your study and analyzing data
+### Test the study, run it and analyze the data
 
 Make sure to test your study with multiple browser types / screen resolutions before you run your study. Carefully check the recorded click trails in a soft launch of your study (e.g. 5% of your intended sample). 
 

@@ -49,7 +49,7 @@ div#QID199 {
 }
 ```
 
-### Embed QButterfly in Website
+### Embed QButterfly in website
 
 First, deploy your webpage and embed butterfly. For an example see butterfly_example.html in the example folder.
 
@@ -66,7 +66,7 @@ Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added righ
 </body>
 ```
 
-### Enable the Qualtrics Next Button
+### Enable the Qualtrics next button
 
 When your website is presented via Qualtrics the next button of your survey is hidden by default. If you want to always display the next button, remove the following line of code from the JavaScript of the "Website" question in Qualtrics.
 

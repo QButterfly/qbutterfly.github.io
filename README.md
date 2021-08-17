@@ -20,29 +20,12 @@ Ebert, N., Scheppler, B. 2021. QButterfly: a lightweight approach for webtrackin
 Start by [importing](https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/) qbutterfly_template.qsf in Qualtrics. 
 
 Your website https://www.mywebsite.com/index.html will be display as an iframe within Qualtrics. Therefore, switch to [survey flow](https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/survey-flow-overview/) and update the following variables:
-- iframe_url (url of your website, e.g.; https://www.mywebsite.com/index.html)
+- iframe_url (url of your website, e.g., https://www.mywebsite.com/index.html)
+- iframe_host (host name of your website, e.g., https://www.mywebsite.com)
 - iframe_border (border size of iframe)
 - iframe_height (height of iframe)
 - iframe_width (width of iframe)
 - iframe_scroll (scrollbars yes or no)
-
-Afterwards, go to the question named website and click on its [JavaScript](https://www.qualtrics.com/support/survey-platform/survey-module/question-options/add-javascript/). This JavaScript can also be found in the separate file qualtricscode.js
-
-Replace the url in following line of code with your url, e.g., https://www.mywebsite.com: 
-```javascript
-   if (event.origin != "https://qbutterfly.github.io") {
-```
-
-Finally, hide the question which collects the user data in Qualtrics via design -> style -> [custom css](https://www.qualtrics.com/support/survey-platform/survey-module/look-feel/fonts-and-colors/#AddCustomCSS)
-
-Add the following CSS:
-
-```css
-div#QID199 {
-    visibility: hidden;
-    display:none;
-}
-```
 
 ### Embed QButterfly in website
 
@@ -69,7 +52,7 @@ When your website is presented via Qualtrics the next button of your survey is h
 this.hideNextButton();
 ```
 
-Two display the next button after it was hidden you have two options.
+To display the next button after it was hidden you have two options.
 
 By default the next button is displayed automatically after 30 seconds. Remove the following line if you want to manually active the next button or change the value 30000ms by any other meaningful duration.
 
@@ -89,6 +72,8 @@ Simply add the class "enableNextButton" behind "reactOnClick" in your html code.
 
 Make sure to test your study with multiple browser types / screen resolutions before you run your study. Carefully check the recorded click trails in a soft launch of your study (e.g. 5% of your intended sample). 
 
+QButterfly writes the data to the embedded variable named "collectedData". In Qualtrics you can retrieve it any time via ${e://Field/collectedData}. 
+
 This is an example of the format of the recorded data:
 
 ```html
@@ -97,4 +82,4 @@ This is an example of the format of the recorded data:
 
 Each event comes with a timestamp (h:mm:ss:ms) and the event ID (e.g., 16:29:45:643: Load). Events are separated via ";". Each website will generate a "Load" event when is loaded in the browser. Each click to an element with the class reactOnClick will generate an event, too (e.g., 16:29:46:471: Start_Button). Checkboxes will generate two events with the same ID if pressed twice (e.g., 16:34:41:163: Activity_Activate;16:34:41:163: Activity_Activate).
 
-To analzye the data, you can for example export it from Qualtrics and import it in MS Excel. You can use simple functions to analyze if specific elements have been clicked or to calculate the time between two clicks. Afterwards you can import your analysis results together with other participant data in your statistics package.
+To analzye the data, you can for example export it from Qualtrics and import it in MS Excel. You can use simple Excel functions to analyze if specific elements have been clicked or to calculate the time between two clicks. Afterwards you can import your analysis results together with other participant data in your statistics package.

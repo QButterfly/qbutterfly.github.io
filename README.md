@@ -83,7 +83,7 @@ QButterfly writes the data to the embedded variable named "collectedData". In Qu
 This is an example of the format of the recorded data:
 
 ```html
- 22:7:16:808:Page_Loaded; 22:7:17:938:Button1; 22:7:18:646:Checkbox1; 22:7:21:366:Button1; 22:7:21:834:Button2; 22:7:26:955:Page_Loaded; 22:7:28:138:Start_Button; 22:7:28:265:Page_Loaded; 22:7:28:682:Activity_Button; 22:7:28:793:Page_Loaded; 22:7:29:274:Location_Button; 22:7:29:383:Page_Loaded; 22:7:29:874:Speech_Button; 22:7:29:986:Page_Loaded; 22:7:30:710:Sound_Activate; 22:7:31:415:Sound_Activate; 22:7:32:374:Sound_Activate; 22:7:33:46:Sound_Button; 22:7:33:162:Page_Loaded;
+22:11:43:307#Page_Loaded; 22:11:45:266#Start_Button; 22:11:45:281#Page_Loaded; 22:11:46:330#Activity_Activate; 22:11:47:194#Activity_Button; 22:11:47:210#Page_Loaded; 22:11:47:838#Location_Activate; 22:11:48:542#Location_Activate; 22:11:49:358#Location_Button; 22:11:49:376#Page_Loaded; 22:11:50:354#Speech_Activate; 22:11:51:474#Speech_Button; 22:11:51:493#Page_Loaded; 22:11:53:174#Sound_Activate; 22:11:53:990#Sound_Button; 22:11:54:5#Page_Loaded;
 ```
 
 Each event comes with a timestamp (h:mm:ss:ms) and the event ID (e.g., 16:29:45:643: Page_Loaded). Events are separated via ";". Each website will generate a "Page_Loaded" event when it is loaded in the browser. Each click on an element with the class reactOnClick will generate an event, too (e.g., 16:29:46:471: Start_Button). Checkboxes will generate two events with the same ID if pressed twice (e.g., 16:34:41:163: Activity_Activate;16:34:41:163: Activity_Activate).

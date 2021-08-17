@@ -28,9 +28,9 @@ Your website https://www.mywebsite.com/index.html will be display as an iframe w
 
 Afterwards, go to the question named website and click on its [JavaScript](https://www.qualtrics.com/support/survey-platform/survey-module/question-options/add-javascript/). This JavaScript can also be found in the separate file qualtricscode.js
 
-Replace the url in following line of code with your url: 
+Replace the url in following line of code with your url, e.g., https://www.mywebsite.com: 
 ```javascript
-   if (event.origin != "https://www.mywebsite.com") {
+   if (event.origin != "https://qbutterfly.github.io") {
 ```
 
 Finally, hide the question which collects the user data in Qualtrics via design -> style -> [custom css](https://www.qualtrics.com/support/survey-platform/survey-module/look-feel/fonts-and-colors/#AddCustomCSS)

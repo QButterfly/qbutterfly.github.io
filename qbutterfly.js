@@ -1,4 +1,6 @@
-	// disable for going back in Browser
+	var qualtricsURL = "https://immzhaw.eu.qualtrics.com";
+  
+  // disable for going back in Browser
 	$(document).ready(function() {
     function disableBack() { window.history.forward() }
 
@@ -18,7 +20,7 @@
         id:		"Page_Loaded",
         currentTime: 	time,
       },
-      "https://immzhaw.eu.qualtrics.com");
+      qualtricsURL);
 
 });
 
@@ -44,7 +46,7 @@ $(".reactOnClick").click(function(e) {
       currentTime: 	time,
       enableNextButton: enableNextButton,
     },
-    "https://immzhaw.eu.qualtrics.com");
+    qualtricsURL);
   
   // save the actual id (because of checkbox firing two times)
   lastIdSubmitted = this.id;

@@ -50,7 +50,6 @@ After you have embedded QButterfly in all html files open qbutterfly.js. Replace
 var qualtricsURL = "https://immzhaw.eu.qualtrics.com";
 ```
 
-
 ### Re-enable the Qualtrics next button after website presentation
 
 When your website is presented via Qualtrics the next button of your survey is hidden by default. If you want to always display the next button, remove the following line of code from the JavaScript of the "Website" question in Qualtrics.
@@ -84,7 +83,7 @@ QButterfly writes the data to the embedded variable named "collectedData". In Qu
 This is an example of the format of the recorded data:
 
 ```html
-21:48:23:643: Page_Loaded;21:48:25:930: Checkbox1;21:48:27:105: Checkbox1;21:48:28:721: Checkbox1;21:48:29:569: Button2;
+ 22:7:16:808:Page_Loaded; 22:7:17:938:Button1; 22:7:18:646:Checkbox1; 22:7:21:366:Button1; 22:7:21:834:Button2; 22:7:26:955:Page_Loaded; 22:7:28:138:Start_Button; 22:7:28:265:Page_Loaded; 22:7:28:682:Activity_Button; 22:7:28:793:Page_Loaded; 22:7:29:274:Location_Button; 22:7:29:383:Page_Loaded; 22:7:29:874:Speech_Button; 22:7:29:986:Page_Loaded; 22:7:30:710:Sound_Activate; 22:7:31:415:Sound_Activate; 22:7:32:374:Sound_Activate; 22:7:33:46:Sound_Button; 22:7:33:162:Page_Loaded;
 ```
 
 Each event comes with a timestamp (h:mm:ss:ms) and the event ID (e.g., 16:29:45:643: Page_Loaded). Events are separated via ";". Each website will generate a "Page_Loaded" event when it is loaded in the browser. Each click on an element with the class reactOnClick will generate an event, too (e.g., 16:29:46:471: Start_Button). Checkboxes will generate two events with the same ID if pressed twice (e.g., 16:34:41:163: Activity_Activate;16:34:41:163: Activity_Activate).

@@ -38,7 +38,7 @@ with
    if (event.origin != "https://www.mywebsite.com") {
 ```
 
-Finally hide the question which collects the user data in Qualtrics via design -> style -> [custom css](https://www.qualtrics.com/support/survey-platform/survey-module/look-feel/fonts-and-colors/#AddCustomCSS)
+Finally, hide the question which collects the user data in Qualtrics via design -> style -> [custom css](https://www.qualtrics.com/support/survey-platform/survey-module/look-feel/fonts-and-colors/#AddCustomCSS)
 
 Add the following CSS:
 

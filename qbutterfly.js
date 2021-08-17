@@ -11,9 +11,6 @@
     var today = new Date();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + ":" + today.getMilliseconds();
     
-    // Checks if clicked item has class enableNextButton
-    
-    
     // Send data to the parent window
     parent.postMessage(
       {
@@ -29,7 +26,7 @@ var lastIdSubmitted;
 
 $(".reactOnClick").click(function(e) {
 // check if reactOnClick for the second time on same element (because of checkbox firing two times)
-//if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
+if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
   // Get current Time
   var today = new Date();
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + ":" + today.getMilliseconds();
@@ -50,8 +47,8 @@ $(".reactOnClick").click(function(e) {
   
   // save the actual id (because of checkbox firing two times)
   lastIdSubmitted = this.id;
-//} else {
+} else {
   // set the last id to some dummy value (because of checkbox firing two times, but when user activates it again, this should be reported)
-//   lastIdSubmitted = "dummyId";
-//}
+   lastIdSubmitted = "dummyId";
+}
 });

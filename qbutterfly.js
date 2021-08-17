@@ -15,7 +15,7 @@
     // Send data to the parent window
     parent.postMessage(
       {
-        id:		"Load",
+        id:		"Page_Loaded",
         currentTime: 	time,
       },
       "https://immzhaw.eu.qualtrics.com");

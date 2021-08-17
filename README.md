@@ -11,7 +11,7 @@ A demo of QButterfly is available [here.](https://immzhaw.eu.qualtrics.com/jfe/f
 
 Please cite as:
 
-Ebert, N., Scheppler, B. 2021. Butterfly: a lightweight approach for webtracking with Qualtrics, doi:10.5281/zenodo.5211544
+Ebert, N., Scheppler, B. 2021. QButterfly: a lightweight approach for webtracking with Qualtrics, doi:10.5281/zenodo.5211544
 
 ## Quick start
 

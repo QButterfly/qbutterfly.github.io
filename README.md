@@ -28,12 +28,7 @@ Your website https://www.mywebsite.com/index.html will be display as an iframe w
 
 Afterwards, go to the question named website and click on its [JavaScript](https://www.qualtrics.com/support/survey-platform/survey-module/question-options/add-javascript/). This JavaScript can also be found in the separate file qualtricscode.js
 
-Replace the following line of code... 
-```javascript
-   if (event.origin != "https://nebert.github.io") {
-```
-with
-
+Replace the url in following line of code with your url: 
 ```javascript
    if (event.origin != "https://www.mywebsite.com") {
 ```

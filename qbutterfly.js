@@ -1,4 +1,4 @@
-	var qualtricsURL = "https://immzhaw.eu.qualtrics.com";
+var qualtricsURL = "https://immzhaw.eu.qualtrics.com";
   
   // disable for going back in Browser
 	$(document).ready(function() {
@@ -6,7 +6,6 @@
 
     window.onload = disableBack();
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
-
 
     var today = new Date();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + ":" + today.getMilliseconds();
@@ -35,8 +34,6 @@ if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
   var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
   
   // Send data to the parent window
-  console.log("EnableNextFromChild");
-  console.log(enableNextButton);
   parent.postMessage(
     {
       id:		this.id,

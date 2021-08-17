@@ -23,7 +23,7 @@ Your website https://www.mywebsite.com/index.html will be display as an iframe w
 - iframe_url (url of your website, e.g.; https://www.mywebsite.com/index.html)
 - iframe_border (border size of iframe)
 - iframe_height (height of iframe)
-- iframe_width (width if iframe)
+- iframe_width (width of iframe)
 - iframe_scroll (scrollbars yes or no)
 
 Afterwards, go to the question named website and click on its [JavaScript](https://www.qualtrics.com/support/survey-platform/survey-module/question-options/add-javascript/). This JavaScript can also be found in the separate file qualtricscode.js

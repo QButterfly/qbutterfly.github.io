@@ -96,6 +96,8 @@ Make sure to test your study with multiple browser types / screen resolutions be
 
 This is an example of the format of the recorded data:
 
+```html
 16:29:45:643: Load;16:29:46:471: Start_Button;16:29:46:598: Load;16:29:46:790: Activity_Button;16:29:46:909: Load;16:29:47:77: Location_Button;16:29:47:223: Load;16:29:47:398: Speech_Button;16:29:47:522: Load;16:29:48:174: Sound_Activate;16:29:48:174: Sound_Activate;16:29:48:949: Sound_Button;16:29:49:83: Load;
+```
 
 Each event comes with a timestamp (h:mm:ss:ms) and the event ID (e.g., 16:29:45:643: Load). Events are separated via ";". Each website will generate a "Load" event when is loaded in the browser. Each click to an element with the class reactOnClick will generate an event, too (e.g., 16:29:46:471: Start_Button). Checkboxes will generate two events with the same ID if pressed twice (e.g., 16:34:41:163: Activity_Activate;16:34:41:163: Activity_Activate).

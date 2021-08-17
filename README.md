@@ -44,7 +44,7 @@ Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added righ
 </body>
 ```
 
-### Enable the Qualtrics next button after website presentation
+### Re-enable the Qualtrics next button after website presentation
 
 When your website is presented via Qualtrics the next button of your survey is hidden by default. If you want to always display the next button, remove the following line of code from the JavaScript of the "Website" question in Qualtrics.
 

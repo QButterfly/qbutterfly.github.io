@@ -102,4 +102,4 @@ This is an example of the format of the recorded data:
 
 Each event comes with a timestamp (h:mm:ss:ms) and the event ID (e.g., 16:29:45:643: Load). Events are separated via ";". Each website will generate a "Load" event when is loaded in the browser. Each click to an element with the class reactOnClick will generate an event, too (e.g., 16:29:46:471: Start_Button). Checkboxes will generate two events with the same ID if pressed twice (e.g., 16:34:41:163: Activity_Activate;16:34:41:163: Activity_Activate).
 
-To analzye the data, we exported it from Qualtrics to MS Excel. We used simple functions to analyze if specific elements have been clicked or to calculate the time between two clicks. Afterwards analysis results were imported to the statistics package.
+To analzye the data, you can for example export it from Qualtrics to MS Excel. You can use simple functions to analyze if specific elements have been clicked or to calculate the time between two clicks. Afterwards you can import your analysis results together with other participant data in your statistics package.

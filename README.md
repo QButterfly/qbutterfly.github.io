@@ -17,7 +17,7 @@ Ebert, N., Scheppler, B. 2021. QButterfly: a lightweight approach for webtrackin
 
 ### Import butterfly_template.qsf
 
-Start by [importing](https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/) butterfly_template.qsf in Qualtrics. 
+Start by [importing](https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/) qbutterfly_template.qsf in Qualtrics. 
 
 Your website https://www.mywebsite.com/index.html will be display as an iframe within Qualtrics. Therefore, switch to [survey flow](https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/survey-flow-overview/) and update the following variables:
 - iframe_url (url of your website, e.g.; https://www.mywebsite.com/index.html)

@@ -53,7 +53,7 @@ div#QID199 {
 
 First, deploy your webpage and embed butterfly. For an example see butterfly_example.html in the example folder.
 
-Add JQuery and butterfly_qualtrics.js to each html page. butterfly_qualtrics.js must be added right before the closing body tag. Afterwards add the class "reactOnClick" to the objects you want to track and give them unique id. The following code will react on a click to the button with the id MyButton. 
+Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added right before the closing body tag. Afterwards add the class "reactOnClick" to the objects you want to track and give them unique id. The following code will react on a click to the button with the id MyButton. 
 
 ```html
 <head>
@@ -62,7 +62,7 @@ Add JQuery and butterfly_qualtrics.js to each html page. butterfly_qualtrics.js 
 </head>
 <body>
     <a><div id="MyButton" class="reactOnClick">MyButton</div></a>
-    <script type="text/javascript" src="butterfly_qualtrics.js"></script>  
+    <script type="text/javascript" src="qbutterfly.js"></script>  
 </body>
 ```
 

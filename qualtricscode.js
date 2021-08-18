@@ -1,5 +1,7 @@
 Qualtrics.SurveyEngine.addOnload(function (){
-    //hides the next button on the page
+    var windowOrigin = new URL("${e://Field/windowURL}").origin;
+	
+	//hides the next button on the page
 
 	this.hideNextButton();
 	
@@ -28,7 +30,7 @@ Qualtrics.SurveyEngine.addOnload(function (){
 	// Callback-Function for the iFrame-message
 	function handleMessage(event) {
 		console.log("handleMessage");
-		if (event.origin != "${e://Field/iframe_host}") {
+		if (event.origin != windowOrigin) {
 			console.log("The message came from some site we don't know. We're not processing it.");
 			return;
 		}
@@ -36,7 +38,7 @@ Qualtrics.SurveyEngine.addOnload(function (){
 		var dataFromChildIframe = event.data;
 
 		// Add the current Time and the id to the collectedData-String 
-		collectedData += dataFromChildIframe.currentTime + ": " + dataFromChildIframe.id + ";";
+		collectedData += dataFromChildIframe.currentTime + "#" + dataFromChildIframe.id + "; ";
 		
 		// Write the collectedData-String to an embedded field
 		Qualtrics.SurveyEngine.setEmbeddedData("collectedData", collectedData);

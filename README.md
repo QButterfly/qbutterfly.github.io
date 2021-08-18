@@ -21,7 +21,6 @@ Start by [importing](https://www.qualtrics.com/support/survey-platform/survey-mo
 
 Your website https://www.mywebsite.com/index.html will be display as an iframe within Qualtrics. Therefore, switch to [survey flow](https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/survey-flow-overview/) and update the following variables:
 - windowURL (url of your website, e.g., https://www.mywebsite.com/index.html)
-- windowHost (host name of your website, e.g., https://www.mywebsite.com)
 - windowBorder (border size of iframe)
 - windowHeight (height of iframe)
 - windowWidth (width of iframe)

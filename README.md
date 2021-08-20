@@ -30,7 +30,7 @@ Your website https://www.mywebsite.com/index.html will be display as an window w
 
 First, deploy your webpage and embed butterfly. For an example see butterfly_example.html in the example folder.
 
-Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added right before the closing body tag. Afterwards add the class "reactOnClick" to the objects you want to track and give them unique id. The following code will react on a click to the button with the id MyButton. 
+Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added right before the closing body tag. Afterwards add the class "reactOnClick" to the objects you want to track and give them unique id. The following code will react on a click on a hyperlink with the id MyLink. 
 
 ```html
 <head>
@@ -38,7 +38,7 @@ Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added righ
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
 </head>
 <body>
-    <a><div id="MyButton" class="reactOnClick">MyButton</div></a>
+    <a><div id="MyLink" class="reactOnClick">LinkText</div></a>
     <script type="text/javascript" src="qbutterfly.js"></script>  
 </body>
 ```
@@ -70,7 +70,7 @@ You can also activate the next button via a specific user click on your website.
 Simply add the class "enableNextButton" behind "reactOnClick" in your html code.
 
 ```html
-<a><div id="MyButton" class="reactOnClick enableNextButton">MyButton</div></a>
+<a><div id="MyLink" class="reactOnClick enableNextButton">LinkText</div></a>
 ```
 
 ### Test the study, run it and analyze the data

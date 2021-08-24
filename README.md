@@ -30,7 +30,7 @@ Your website https://www.mywebsite.com/index.html will be display as an window w
 
 First, deploy your webpage and embed butterfly. For an example see butterfly_example.html in the example folder.
 
-Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added right before the closing body tag. Afterwards add the class "reactOnClick" to the objects you want to track and give them unique id. The following code will react on a click on a hyperlink with the id MyLink. 
+Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added right before the closing body tag. Afterwards add the class "reactOnClick" to the objects you want to track and give them unique id. Replace https://immzhaw.eu.qualtrics.com with the name of your own Qualtrics domain that you are using to run surveys. The following code will react on a click on a hyperlink with the id MyLink. 
 
 ```html
 <head>
@@ -39,14 +39,8 @@ Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added righ
 </head>
 <body>
     <a><div id="MyLink" class="reactOnClick">LinkText</div></a>
-    <script type="text/javascript" src="qbutterfly.js"></script>  
+    <script type="text/javascript" src="qbutterfly.js" qualtricsURL="https://immzhaw.eu.qualtrics.com"></script>    
 </body>
-```
-
-After you have embedded QButterfly in all html files open qbutterfly.js. Replace https://immzhaw.eu.qualtrics.com with the name of your own Qualtrics domain that you are using to run surveys.
-
-```javascript
-var qualtricsURL = "https://immzhaw.eu.qualtrics.com";
 ```
 
 ### Re-enable the Qualtrics next button after website presentation

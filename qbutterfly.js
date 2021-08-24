@@ -1,5 +1,3 @@
-var qualtricsURL = "https://immzhaw.eu.qualtrics.com";
-  
   // disable for going back in Browser
 	$(document).ready(function() {
     function disableBack() { window.history.forward() }
@@ -16,7 +14,7 @@ var qualtricsURL = "https://immzhaw.eu.qualtrics.com";
         id:		"Page_Loaded",
         currentTime: 	time,
       },
-      qualtricsURL);
+      document.currentScript.getAttribute("qualtricsURL"));
 
 });
 
@@ -40,7 +38,7 @@ if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
       currentTime: 	time,
       enableNextButton: enableNextButton,
     },
-    qualtricsURL);
+    document.currentScript.getAttribute("qualtricsURL"));
   
   // save the actual id (because of checkbox firing two times)
   lastIdSubmitted = this.id;

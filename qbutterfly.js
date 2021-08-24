@@ -6,6 +6,8 @@ document.currentScript = document.currentScript || (function() {
  
  // disable for going back in Browser
 	$(document).ready(function() {
+    console.log("Test")
+    console.log(document.currentScript.getAttribute("qualtricsURL"));
     function disableBack() { window.history.forward() }
 
     window.onload = disableBack();

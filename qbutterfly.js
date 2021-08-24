@@ -3,9 +3,9 @@ var qualtricsURL;
  // disable for going back in Browser
 	$(document).ready(function() {
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
-
-    console.log("Test")
-    console.log(qualtricsURL);
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/')+1);
+    alert(filename);
     function disableBack() { window.history.forward() }
 
     window.onload = disableBack();

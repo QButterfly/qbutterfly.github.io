@@ -1,4 +1,9 @@
-  // disable for going back in Browser
+document.currentScript = document.currentScript || (function() {
+  var scripts = document.getElementsByTagName('script');
+  return scripts[scripts.length - 1];
+})();
+ 
+ // disable for going back in Browser
 	$(document).ready(function() {
     function disableBack() { window.history.forward() }
 

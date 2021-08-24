@@ -11,14 +11,13 @@ var qualtricsURL;
     window.onload = disableBack();
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 
-    var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + ":" + today.getMilliseconds();
+    var timestamp = Date.now();
     
     // Send data to the parent window
     parent.postMessage(
       {
         id:		"Page_Loaded",
-        currentTime: 	time,
+        currentTime: 	timestamp,
       },
       qualtricsURL);
 
@@ -30,9 +29,8 @@ var lastIdSubmitted;
 $(".reactOnClick").click(function(e) {
 // check if reactOnClick for the second time on same element (because of checkbox firing two times)
 if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
-  // Get current Time
-  var today = new Date();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + ":" + today.getMilliseconds();
+  // Get current date
+  var timestamp = Date.now();
   
   // Checks if clicked item has class enableNextButton
   var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
@@ -41,7 +39,7 @@ if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
   parent.postMessage(
     {
       id:		this.id,
-      currentTime: 	time,
+      currentTime: 	timestamp,
       enableNextButton: enableNextButton,
     },
     qualtricsURL);

@@ -1,4 +1,4 @@
-// fetch parameters 
+// fetch parameters in older browsers
 document.currentScript = document.currentScript || (function() {
   var scripts = document.getElementsByTagName('script');
   return scripts[scripts.length - 1];

@@ -76,9 +76,9 @@ QButterfly writes the data to the embedded variable named "collectedData". In Qu
 This is an example of the format of the recorded data:
 
 ```html
-1629802674592#Page_Loaded; 1629802676308#Button1; 1629802677011#Button2; 1629802678183#Checkbox1; 1629802679663#Button1; 1629802680435#Checkbox1;
+1629802674592#page1.html; 1629802676308#Button1; 1629802677011#Button2; 1629802678183#Checkbox1; 1629802679663#Button1; 1629802680435#Checkbox1;
 ```
 
-Each event comes with a timestamp (milliseconds since 01.01.1970 00:00:00 UTC) and an event ID (e.g., 1629802677011#Button2) separated by #. Events are separated via ";". Each website will generate a "Page_Loaded" event when it is loaded in the browser. Each click on an element with the class reactOnClick will generate an event, too (e.g., 1629802676308#Button1). Checkboxes will generate two events with the same ID if pressed twice (e.g., 1629802678183#Checkbox1; 1629802680435#Checkbox1;).
+Each event comes with a timestamp (milliseconds since 01.01.1970 00:00:00 UTC) and an event ID (e.g., 1629802677011#Button2) separated by #. Events are separated via ";". Each webpage will generate an event with its name when it is loaded in the browser. Each click on an element with the class reactOnClick will generate an event, too (e.g., 1629802676308#Button1). Checkboxes will generate two events with the same ID if pressed twice (e.g., 1629802678183#Checkbox1; 1629802680435#Checkbox1;).
 
 To analzye the data, you can, for example, export it from Qualtrics and import it into MS Excel. You can use simple Excel functions to analyze if specific elements have been clicked or to calculate the time between two clicks. Afterwards you can import your analysis results together with other participant data in your statistics package.

@@ -1,13 +1,11 @@
-// fetch parameters in older browsers
-document.currentScript = document.currentScript || (function() {
-  var scripts = document.getElementsByTagName('script');
-  return scripts[scripts.length - 1];
-})();
- 
+
+  
  // disable for going back in Browser
 	$(document).ready(function() {
+    var qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
+
     console.log("Test")
-    console.log(document.currentScript.getAttribute('qualtricsURL'));
+    console.log(qualtricsURL);
     function disableBack() { window.history.forward() }
 
     window.onload = disableBack();
@@ -22,7 +20,7 @@ document.currentScript = document.currentScript || (function() {
         id:		"Page_Loaded",
         currentTime: 	time,
       },
-      document.currentScript.getAttribute('qualtricsURL'));
+      qualtricsURL);
 
 });
 
@@ -46,7 +44,7 @@ if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
       currentTime: 	time,
       enableNextButton: enableNextButton,
     },
-    document.currentScript.getAttribute('qualtricsURL'));
+    qualtricsURL);
   
   // save the actual id (because of checkbox firing two times)
   lastIdSubmitted = this.id;

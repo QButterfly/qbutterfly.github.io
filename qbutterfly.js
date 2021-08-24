@@ -5,7 +5,7 @@ var qualtricsURL;
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);
-    alert(filename);
+   
     function disableBack() { window.history.forward() }
 
     window.onload = disableBack();
@@ -16,7 +16,7 @@ var qualtricsURL;
     // Send data to the parent window
     parent.postMessage(
       {
-        id:		"Page_Loaded",
+        id:		filename,
         currentTime: 	timestamp,
       },
       qualtricsURL);

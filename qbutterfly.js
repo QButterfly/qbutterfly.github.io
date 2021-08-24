@@ -1,8 +1,8 @@
-
+var qualtricsURL;
   
  // disable for going back in Browser
 	$(document).ready(function() {
-    var qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
+    qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
 
     console.log("Test")
     console.log(qualtricsURL);

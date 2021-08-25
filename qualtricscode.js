@@ -1,7 +1,9 @@
  //This code is embedded in the Qualtrics template next to the question that contains the iframe
 
-Qualtrics.SurveyEngine.addOnload(function (){
-    //hides the next button on the page
+ Qualtrics.SurveyEngine.addOnload(function (){
+    var windowOrigin = new URL("${e://Field/windowURL}").origin;
+	
+	//hides the next button on the page
 
 	this.hideNextButton();
 	
@@ -16,7 +18,7 @@ Qualtrics.SurveyEngine.addOnload(function (){
 	jQuery(".Skin .QuestionText").attr("style", "padding-top: 0");
 	
 	// initialize the collectable data
-	var collectedData = "";
+	var eventStream = "";
 
 	// register callback handleMessage, when a message from the iFrame is received
 	if (window.addEventListener) {
@@ -30,7 +32,7 @@ Qualtrics.SurveyEngine.addOnload(function (){
 	// Callback-Function for the iFrame-message
 	function handleMessage(event) {
 		console.log("handleMessage");
-		if (event.origin != "https://qbutterfly.github.io") {
+		if (event.origin != windowOrigin) {
 			console.log("The message came from some site we don't know. We're not processing it.");
 			return;
 		}
@@ -38,10 +40,10 @@ Qualtrics.SurveyEngine.addOnload(function (){
 		var dataFromChildIframe = event.data;
 
 		// Add the current Time and the id to the collectedData-String 
-		collectedData += dataFromChildIframe.currentTime + ": " + dataFromChildIframe.id + ";";
+		eventStream += dataFromChildIframe.currentTime + "#" + dataFromChildIframe.id + "; ";
 		
-		// Paste the collectedData-String in the hidden Question Input
-		document.getElementById("QR~QID199").value = collectedData;
+		// Write the collectedData-String to an embedded field
+		Qualtrics.SurveyEngine.setEmbeddedData("eventStream", eventStream);
 
 		// Shows the next button, if user clicked on an element with class enableNextButton
 		if(dataFromChildIframe.enableNextButton){

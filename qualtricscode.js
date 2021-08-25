@@ -1,6 +1,4 @@
- //This code is embedded in the Qualtrics template next to the question that contains the iframe
-
- Qualtrics.SurveyEngine.addOnload(function (){
+Qualtrics.SurveyEngine.addOnload(function (){
     var windowOrigin = new URL("${e://Field/windowURL}").origin;
 	
 	//hides the next button on the page
@@ -18,7 +16,7 @@
 	jQuery(".Skin .QuestionText").attr("style", "padding-top: 0");
 	
 	// initialize the collectable data
-	var eventStream = "";
+	var collectedData = "";
 
 	// register callback handleMessage, when a message from the iFrame is received
 	if (window.addEventListener) {
@@ -40,10 +38,10 @@
 		var dataFromChildIframe = event.data;
 
 		// Add the current Time and the id to the collectedData-String 
-		eventStream += dataFromChildIframe.currentTime + "#" + dataFromChildIframe.id + "; ";
+		collectedData += dataFromChildIframe.currentTime + "#" + dataFromChildIframe.id + "; ";
 		
 		// Write the collectedData-String to an embedded field
-		Qualtrics.SurveyEngine.setEmbeddedData("eventStream", eventStream);
+		Qualtrics.SurveyEngine.setEmbeddedData("collectedData", collectedData);
 
 		// Shows the next button, if user clicked on an element with class enableNextButton
 		if(dataFromChildIframe.enableNextButton){

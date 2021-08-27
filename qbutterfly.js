@@ -1,7 +1,8 @@
 var qualtricsURL;
   
  // disable for going back in Browser
-	$(document).ready(function() {
+	$(document).load(function() {
+    var timestamp = Date.now();
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);

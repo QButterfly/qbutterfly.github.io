@@ -11,9 +11,7 @@ var qualtricsURL;
 
     window.onload = disableBack();
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
-
-    var timestamp = Date.now();
-    
+   
     // Send data to the parent window
     parent.postMessage(
       {

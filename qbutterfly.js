@@ -1,7 +1,7 @@
 var qualtricsURL;
   
  // disable for going back in Browser
-	$(document).load(function() {
+	$(document).ready(function() {
     var timestamp = Date.now();
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
     var url = window.location.pathname;

@@ -7,19 +7,26 @@ var qualtricsURL;
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);
    
-    function disableBack() { window.history.forward() }
-
-    window.onload = disableBack();
-    window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
-   
-    // Send data to the parent window
-    parent.postMessage(
+    function postToParent() {
+     // Send data to the parent window
+     parent.postMessage(
       {
         id:		filename,
         currentTime: 	timestamp,
       },
       qualtricsURL);
+    }
+    function disableBack() { 
+      window.history.forward(); 
+    }
 
+    window.onload = function () {
+      disableBack();
+      postToParent();
+    }
+    window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+
+   
 });
 
 // init a variable for saving the last id (because of checkbox firing two times)

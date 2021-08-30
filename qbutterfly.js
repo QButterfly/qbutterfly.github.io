@@ -2,7 +2,6 @@ var qualtricsURL;
   
  // disable for going back in Browser
 	$(document).ready(function() {
-    var timestamp = Date.now();
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);
@@ -11,8 +10,6 @@ var qualtricsURL;
     function disableBack() { 
       window.history.forward(); 
     }
-
-    console.log(timestamp);
     window.onload = function () {
       disableBack();
       var timestampOnload = Date.now();

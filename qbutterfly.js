@@ -7,22 +7,22 @@ var qualtricsURL;
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);
    
-    function postToParent() {
-     // Send data to the parent window
-     parent.postMessage(
-      {
-        id:		filename,
-        currentTime: 	timestamp,
-      },
-      qualtricsURL);
-    }
+    
     function disableBack() { 
       window.history.forward(); 
     }
 
+    console.log(timestamp);
     window.onload = function () {
       disableBack();
-      postToParent();
+      var timestampOnload = Date.now();
+      parent.postMessage(
+        {
+          id:		filename,
+          currentTime: 	timestampOnload,
+        },
+        qualtricsURL); 
+      console.log(timestampOnload);  
     }
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 

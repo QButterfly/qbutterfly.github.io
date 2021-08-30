@@ -11,8 +11,8 @@ var qualtricsURL;
       window.history.forward(); 
     }
     window.onload = function () {
-      disableBack();
       var timestampOnload = Date.now();
+      disableBack();
       parent.postMessage(
         {
           id:		filename,

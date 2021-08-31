@@ -19,7 +19,7 @@ var qualtricsURL;
           currentTime: 	timestampOnload,
         },
         qualtricsURL); 
-      console.log(timestampOnload);  
+     console.log("Load");  
     }
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 
@@ -46,7 +46,7 @@ $(".reactOnClick").click(function(e) {
       enableNextButton: enableNextButton,
     },
     qualtricsURL);
-  
+    console.log("Click");  
   // save the actual id (because of checkbox firing two times)
   //lastIdSubmitted = this.id;
   //} else {

@@ -31,7 +31,7 @@ var lastIdSubmitted;
 
 $(".reactOnClick").click(function(e) {
 // check if reactOnClick for the second time on same element (because of checkbox firing two times)
-if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
+//if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
   // Get current date
   var timestamp = Date.now();
   
@@ -48,9 +48,9 @@ if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
     qualtricsURL);
   
   // save the actual id (because of checkbox firing two times)
-  lastIdSubmitted = this.id;
-} else {
+  //lastIdSubmitted = this.id;
+  //} else {
   // set the last id to some dummy value (because of checkbox firing two times, but when user activates it again, this should be reported)
-   lastIdSubmitted = "dummyId";
-}
+  // lastIdSubmitted = "dummyId";
+  ///}
 });

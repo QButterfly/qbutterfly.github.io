@@ -19,8 +19,6 @@ var qualtricsURL;
       window.history.forward(); 
     }
     
-    var win = document.defaultView;
-    log(win);
 
     window.onload = function () {
       parent.postMessage(
@@ -32,6 +30,10 @@ var qualtricsURL;
       log("Message sent: " + filename);  
       disableBack();
     }
+
+    var win = document.defaultView;
+    log(win.location);
+
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });
 

@@ -13,21 +13,21 @@ var qualtricsURL;
     }
     
 
-    //
-    // BUG: doesn't get recorded by Qualtrics the first time, because eventlistener ist not there yet
-    //
     window.onload = function () {
-      console.log("OnLoad");
-      var timestampOnload = Date.now();
       disableBack();
+      console.log("OnLoad");
+    }
+     
+    //next function should better be onload, however this event gets missed sometimes.
+      var timestampOnload = Date.now();
       parent.postMessage(
         {
           id:		filename,
           currentTime: 	timestampOnload,
         },
         qualtricsURL); 
-      console.log("Message: " + filename);  
-    }
+    console.log("Message: " + filename);  
+    
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 
    

@@ -2,6 +2,7 @@ var qualtricsURL;
   
  // disable for going back in Browser
 	$(document).ready(function() {
+    console.log("Ready");  
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);
@@ -10,7 +11,13 @@ var qualtricsURL;
     function disableBack() { 
       window.history.forward(); 
     }
+    
+
+    //
+    // BUG: doesn't get recorded by Qualtrics the first time, because eventlistener ist not there yet
+    //
     window.onload = function () {
+      console.log("OnLoad");
       var timestampOnload = Date.now();
       disableBack();
       parent.postMessage(
@@ -19,7 +26,7 @@ var qualtricsURL;
           currentTime: 	timestampOnload,
         },
         qualtricsURL); 
-      console.log(filename);  
+      console.log("Message: " + filename);  
     }
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 
@@ -30,7 +37,8 @@ var qualtricsURL;
 var lastIdSubmitted;
 
 $(".reactOnClick").click(function(e) {
-// check if reactOnClick for the second time on same element (because of checkbox firing two times)
+console.log("reactOnClick");
+  // check if reactOnClick for the second time on same element (because of checkbox firing two times)
 if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
   // Get current date
   var timestamp = Date.now();
@@ -46,7 +54,7 @@ if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
       enableNextButton: enableNextButton,
     }, 
     qualtricsURL);
-  console.log(this.id);  
+  console.log("Message: " + this.id);  
   // save the actual id (because of checkbox firing two times)
   lastIdSubmitted = this.id;
   } else {

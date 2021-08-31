@@ -44,7 +44,7 @@ if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
       id:		this.id,
       currentTime: 	timestamp,
       enableNextButton: enableNextButton,
-    },
+    }, 
     qualtricsURL);
   console.log(this.id);  
   // save the actual id (because of checkbox firing two times)

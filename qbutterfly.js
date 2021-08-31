@@ -19,6 +19,9 @@ var qualtricsURL;
       window.history.forward(); 
     }
     
+    var win = document.defaultView;
+    log(win);
+
     window.onload = function () {
       parent.postMessage(
         {

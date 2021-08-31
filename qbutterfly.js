@@ -7,30 +7,21 @@ var qualtricsURL;
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);
    
-    
     function disableBack() { 
       window.history.forward(); 
     }
     
-
     window.onload = function () {
-      disableBack();
-      console.log("OnLoad");
-    }
-     
-    //next function should better be onload, however this event gets missed sometimes.
-      var timestampOnload = Date.now();
       parent.postMessage(
         {
           id:		filename,
-          currentTime: 	timestampOnload,
+          currentTime: 	Date.now(),
         },
         qualtricsURL); 
-    console.log("Message: " + filename);  
-    
+      console.log("Message sent: " + filename);  
+      disableBack();
+    }
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
-
-   
 });
 
 // init a variable for saving the last id (because of checkbox firing two times)

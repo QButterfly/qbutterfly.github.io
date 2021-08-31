@@ -15,8 +15,7 @@ var qualtricsURL;
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);
   
-    
-    // postMessage besser auf Onload event
+  //tbd: move postMessage to Onload for better timing accuracy
     parent.postMessage(
       {
         id:		filename,

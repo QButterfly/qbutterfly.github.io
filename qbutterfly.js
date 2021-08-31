@@ -32,7 +32,7 @@ var qualtricsURL;
     }
 
     var win = document.defaultView;
-    log("Window: " + win.location);
+    log("Window: " + win.location +" XXX " + window.location);
 
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });

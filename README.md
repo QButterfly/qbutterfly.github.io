@@ -38,7 +38,7 @@ Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added righ
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
 </head>
 <body>
-    <a><div id="MyLink" class="reactOnClick">LinkText</div></a>
+    <a id="MyLink" class="reactOnClick" href="https://www.w3schools.com/">Visit W3Schools.com!</a>
     <script type="text/javascript" src="qbutterfly.js" qualtricsURL="https://abcd.eu.qualtrics.com"></script>    
 </body>
 ```

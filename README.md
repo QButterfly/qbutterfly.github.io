@@ -64,9 +64,7 @@ You can also activate the next button via a specific user click on your website.
 Simply add the class "enableNextButton" behind "reactOnClick" in your html code.
 
 ```html
-<div id="MyLink" class="reactOnClick enableNextButton">
-    <a>LinkText</a>
-</div>
+<a id="MyLink" class="reactOnClick enableNextButton" href="https://www.w3schools.com/">Visit W3Schools.com!</a>
 ```
 
 ### Test the study, run it and analyze the data

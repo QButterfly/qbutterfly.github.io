@@ -31,23 +31,12 @@ var qualtricsURL;
     window.onload = function () {
       disableBack();
     }
-
-    //var win = document.defaultView;
-    //log("Window: " + win.location);
-
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });
 
-// init a variable for saving the last id (because of checkbox firing two times)
-var lastIdSubmitted;
-
 $(".reactOnClick").click(function(e) {
   
-  log("reactOnClick");
-  log("lastIdSubmitted"+ lastIdSubmitted);
-  log("this.id"+this.id);
-  // check if reactOnClick for the second time on same element (because of checkbox firing two times)
-  if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
+  log("reactOnClick: " + this.id);
   // Get current date
   // Checks if clicked item has class enableNextButton
   var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
@@ -60,11 +49,5 @@ $(".reactOnClick").click(function(e) {
       enableNextButton: enableNextButton,
     }, 
     qualtricsURL);
-  log("Message sent: " + this.id);  
-  // save the actual id (because of checkbox firing two times)
-  lastIdSubmitted = this.id;
-  } else {
-  // set the last id to some dummy value (because of checkbox firing two times, but when user activates it again, this should be reported)
-   lastIdSubmitted = "dummyId";
-  }
+  log("Message sent: " + this.id);   
 });

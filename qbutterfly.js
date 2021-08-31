@@ -44,6 +44,8 @@ var lastIdSubmitted;
 $(".reactOnClick").click(function(e) {
   
   log("reactOnClick");
+  log("lastIdSubmitted"+ lastIdSubmitted);
+  log("this.id"+this.id);
   // check if reactOnClick for the second time on same element (because of checkbox firing two times)
   if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
   // Get current date

@@ -14,25 +14,26 @@ var qualtricsURL;
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);
-   
+  
+    
+    // postMessage besser auf Onload event
+    parent.postMessage(
+      {
+        id:		filename,
+        currentTime: 	Date.now(),
+      },
+      qualtricsURL); 
+    log("Message sent: " + filename);  
+    
     function disableBack() { 
       window.history.forward(); 
     }
-    
-
     window.onload = function () {
-      parent.postMessage(
-        {
-          id:		filename,
-          currentTime: 	Date.now(),
-        },
-        qualtricsURL); 
-      log("Message sent: " + filename);  
       disableBack();
     }
 
-    var win = document.defaultView;
-    log("Window: " + win.location +" XXX " + window.location);
+    //var win = document.defaultView;
+    //log("Window: " + win.location);
 
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });

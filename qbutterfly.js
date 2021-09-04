@@ -18,7 +18,7 @@ function disableBack() {
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
     url = window.location.pathname;
     filename = url.substring(url.lastIndexOf('/')+1);
-    var msg = "DOM_ready_" + filename;
+    var msg = "ready_" + filename;
 
     parent.postMessage(
       {
@@ -32,7 +32,7 @@ function disableBack() {
 });
 
 $(window).on("load",function() {
-  var msg = "loaded_" + filename;
+  var msg = "load_" + filename;
   parent.postMessage(
     {
       id:		msg,

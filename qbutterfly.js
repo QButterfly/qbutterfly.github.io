@@ -7,12 +7,15 @@ function log(message) {
 }
 
 var qualtricsURL;
+var url;
+var filename;
   
 
 	$(document).ready(function() {
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
-    var url = window.location.pathname;
-    var msg = "ready_" + url.substring(url.lastIndexOf('/')+1);
+    url = window.location.pathname;
+    filename = url.substring(url.lastIndexOf('/')+1);
+    var msg = "ready_" + filename;
 
     parent.postMessage(
       {
@@ -39,11 +42,7 @@ var qualtricsURL;
 });
 
 $(window).on("load",function() {
-
-  qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
-  var url = window.location.pathname;
-  var msg = "load_" + url.substring(url.lastIndexOf('/')+1);
-
+  var msg = "load_" + filename;
   parent.postMessage(
     {
       id:		msg,

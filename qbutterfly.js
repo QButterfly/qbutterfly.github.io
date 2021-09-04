@@ -12,11 +12,11 @@ var qualtricsURL;
 	$(document).ready(function() {
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
     var url = window.location.pathname;
-    var filename = url.substring(url.lastIndexOf('/')+1);
+    var msg = "ready_" + url.substring(url.lastIndexOf('/')+1);
 
     parent.postMessage(
       {
-        id:		"ready_" + filename,
+        id:		msg,
         currentTime: 	Date.now(),
       },
       qualtricsURL); 
@@ -42,11 +42,11 @@ $(window).on("load",function() {
 
   qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
   var url = window.location.pathname;
-  var filename = url.substring(url.lastIndexOf('/')+1);
+  var msg = "load_" + url.substring(url.lastIndexOf('/')+1);
 
   parent.postMessage(
     {
-      id:		"load_" + filename,
+      id:		msg,
       currentTime: 	Date.now(),
     },
     qualtricsURL); 

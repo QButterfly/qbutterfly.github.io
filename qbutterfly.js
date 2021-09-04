@@ -20,7 +20,7 @@ var qualtricsURL;
         currentTime: 	Date.now(),
       },
       qualtricsURL); 
-    log("Document Ready Msg: " + filename); 
+    log("Document Ready Msg: " + msg); 
     
   /*  function disableBack() { 
       window.history.forward(); 
@@ -50,7 +50,7 @@ $(window).on("load",function() {
       currentTime: 	Date.now(),
     },
     qualtricsURL); 
-  log("Window OnLoad Msg: " + filename); 
+  log("Window OnLoad Msg: " + msg); 
 
 }) 
 

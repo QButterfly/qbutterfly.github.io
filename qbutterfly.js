@@ -16,7 +16,7 @@ var qualtricsURL;
 
     parent.postMessage(
       {
-        id:		"ready_" & filename,
+        id:		"ready_" + filename,
         currentTime: 	Date.now(),
       },
       qualtricsURL); 
@@ -46,7 +46,7 @@ $(window).on("load",function() {
 
   parent.postMessage(
     {
-      id:		"load_" & filename,
+      id:		"load_" + filename,
       currentTime: 	Date.now(),
     },
     qualtricsURL); 

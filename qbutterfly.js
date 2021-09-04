@@ -51,7 +51,7 @@ var qualtricsURL;
 }); */
 
 $(document).click(function(e) {
-  log("Click: "+e.target, e);
+  log("Click: "+ $(e.target).text());
   //log("Click: " + this.id);
   // Checks if clicked item has class enableNextButton
   //var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
@@ -60,7 +60,7 @@ $(document).click(function(e) {
   
   parent.postMessage(
     {
-      id:		e.target,
+      id:		$(e.target).text(),
       currentTime: 	Date.now(),
       enableNextButton: 0,
     }, 

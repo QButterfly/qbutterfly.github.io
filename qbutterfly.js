@@ -1,4 +1,4 @@
-const debug = false;
+const debug = true;
 
 function log(message) {
   if (debug) { 

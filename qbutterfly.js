@@ -9,7 +9,10 @@ function log(message) {
 var qualtricsURL;
 var url;
 var filename;
-  
+
+function disableBack() { 
+  window.history.forward(); 
+}
 
 	$(document).ready(function() {
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
@@ -25,20 +28,7 @@ var filename;
       qualtricsURL); 
     log("Document Ready Msg: " + msg); 
     
-  /*  function disableBack() { 
-      window.history.forward(); 
-    }
-    window.onload = function () {
-      parent.postMessage(
-        {
-          id:		"complete_" & filename,
-          currentTime: 	Date.now(),
-        },
-        qualtricsURL); 
-      log("Window OnLoad Msg: " + filename);
-      disableBack();
-    }
-    window.onpageshow = function(evt) { if (evt.persisted) disableBack() } */
+    window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });
 
 $(window).on("load",function() {
@@ -50,7 +40,7 @@ $(window).on("load",function() {
     },
     qualtricsURL); 
   log("Window OnLoad Msg: " + msg); 
-
+  disableBack();
 }) 
 
 

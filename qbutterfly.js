@@ -29,26 +29,15 @@ var qualtricsURL;
     }
     window.onload = function () {
       disableBack();
+      parent.postMessage(
+        {
+          id:		"OnLoad",
+          currentTime: 	Date.now(),
+        },
+        qualtricsURL); 
     }
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });
-
-/*$(".reactOnClick").click(function(e) {
-  
-  log("reactOnClick: " + this.id);
-  // Checks if clicked item has class enableNextButton
-  var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
-  log(enableNextButton);
-  // Send data to the parent window
-  parent.postMessage(
-    {
-      id:		this.id,
-      currentTime: 	Date.now(),
-      enableNextButton: enableNextButton,
-    }, 
-    qualtricsURL);
-  log("Message sent: " + this.id);   
-}); */
 
 $(document).click(function(e) {
   if (e.target.id) {
@@ -60,7 +49,7 @@ $(document).click(function(e) {
   log("Click: " + eventText);
   // Checks if clicked item has class enableNextButton
   var enableNextButton = $(e.target).hasClass('enableNextButton');
-  log(enableNextButton);
+  log("EnableNext: " + enableNextButton);
   // Send data to the parent window
   
   parent.postMessage(

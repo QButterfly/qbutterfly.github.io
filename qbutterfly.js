@@ -1,4 +1,4 @@
-const debug = true;
+const debug = false;
 
 function log(message) {
   if (debug) { 
@@ -33,9 +33,27 @@ var qualtricsURL;
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });
 
-$(".reactOnClick").click(function(e) {
+/*$(".reactOnClick").click(function(e) {
   
   log("reactOnClick: " + this.id);
+  // Get current date
+  // Checks if clicked item has class enableNextButton
+  var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
+  log(enableNextButton);
+  // Send data to the parent window
+  parent.postMessage(
+    {
+      id:		this.id,
+      currentTime: 	Date.now(),
+      enableNextButton: enableNextButton,
+    }, 
+    qualtricsURL);
+  log("Message sent: " + this.id);   
+}); */
+
+$(document).click(function(e) {
+  
+  log("Click: " + this.id);
   // Get current date
   // Checks if clicked item has class enableNextButton
   var enableNextButton = this.className.indexOf("enableNextButton") >= 0;

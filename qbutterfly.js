@@ -15,14 +15,14 @@ var qualtricsURL;
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);
   
-  //tbd: move postMessage to Onload for better timing accuracy
-    parent.postMessage(
+  
+  /*  parent.postMessage(
       {
         id:		filename,
         currentTime: 	Date.now(),
       },
       qualtricsURL); 
-    log("Message sent: " + filename);  
+    log("Message sent: " + filename);  */
     
     function disableBack() { 
       window.history.forward(); 
@@ -31,11 +31,11 @@ var qualtricsURL;
       disableBack();
       parent.postMessage(
         {
-          id:		"OnLoad",
+          id:		filename,
           currentTime: 	Date.now(),
         },
         qualtricsURL); 
-        log("Message sent: OnLoad");  
+        log("Message sent: " + filename);
     }
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });

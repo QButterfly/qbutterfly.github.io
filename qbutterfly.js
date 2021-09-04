@@ -58,18 +58,17 @@ $(document).click(function(e) {
     eventText = e.target.nodename;
   }
   log("Click: " + eventText);
-  //log("Click: " + this.id);
   // Checks if clicked item has class enableNextButton
-  //var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
-  //log(enableNextButton);
+  var enableNextButton = $(e.target).hasClass('enableNextButton');
+  log(enableNextButton);
   // Send data to the parent window
   
   parent.postMessage(
     {
       id:		eventText,
       currentTime: 	Date.now(),
-      enableNextButton: 0,
+      enableNextButton: enableNextButton,
     }, 
     qualtricsURL);
- // log("Message sent: " + this.id);   
+  log("Message sent: " + eventText);   
 });

@@ -35,7 +35,7 @@ var qualtricsURL;
           currentTime: 	Date.now(),
         },
         qualtricsURL); 
-        log("Message sent: OnLoad);  
+        log("Message sent: OnLoad");  
     }
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });

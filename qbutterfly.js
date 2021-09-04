@@ -8,7 +8,7 @@ function log(message) {
 
 var qualtricsURL;
   
- // disable for going back in Browser
+
 	$(document).ready(function() {
     qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
     var url = window.location.pathname;
@@ -16,27 +16,44 @@ var qualtricsURL;
 
     parent.postMessage(
       {
-        id:		filename,
+        id:		"ready_" & filename,
         currentTime: 	Date.now(),
       },
       qualtricsURL); 
     log("Document Ready Msg: " + filename); 
     
-    function disableBack() { 
+  /*  function disableBack() { 
       window.history.forward(); 
     }
     window.onload = function () {
       parent.postMessage(
         {
-          id:		filename,
+          id:		"complete_" & filename,
           currentTime: 	Date.now(),
         },
         qualtricsURL); 
       log("Window OnLoad Msg: " + filename);
       disableBack();
     }
-    window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+    window.onpageshow = function(evt) { if (evt.persisted) disableBack() } */
 });
+
+$(window).on("load",function() {
+
+  qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
+  var url = window.location.pathname;
+  var filename = url.substring(url.lastIndexOf('/')+1);
+
+  parent.postMessage(
+    {
+      id:		"load_" & filename,
+      currentTime: 	Date.now(),
+    },
+    qualtricsURL); 
+  log("Window OnLoad Msg: " + filename); 
+
+}) 
+
 
 $(document).click(function(e) {
   if (e.target.id) {

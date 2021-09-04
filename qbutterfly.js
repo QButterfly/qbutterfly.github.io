@@ -36,7 +36,6 @@ var qualtricsURL;
 /*$(".reactOnClick").click(function(e) {
   
   log("reactOnClick: " + this.id);
-  // Get current date
   // Checks if clicked item has class enableNextButton
   var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
   log(enableNextButton);
@@ -52,19 +51,19 @@ var qualtricsURL;
 }); */
 
 $(document).click(function(e) {
-  
-  log("Click: " + this.id);
-  // Get current date
+  log("Click: "+e.target, e);
+  //log("Click: " + this.id);
   // Checks if clicked item has class enableNextButton
-  var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
-  log(enableNextButton);
+  //var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
+  //log(enableNextButton);
   // Send data to the parent window
+  
   parent.postMessage(
     {
-      id:		this.id,
+      id:		e.target,
       currentTime: 	Date.now(),
-      enableNextButton: enableNextButton,
+      enableNextButton: 0,
     }, 
     qualtricsURL);
-  log("Message sent: " + this.id);   
+ // log("Message sent: " + this.id);   
 });

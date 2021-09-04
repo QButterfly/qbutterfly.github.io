@@ -51,8 +51,12 @@ var qualtricsURL;
 }); */
 
 $(document).click(function(e) {
-  var eventText = $(e.target).text();
-  
+  if (e.target.id) {
+    eventText = e.target.id;
+  }
+  else {
+    eventText = e.target.nodename;
+  }
   log("Click: " + eventText);
   //log("Click: " + this.id);
   // Checks if clicked item has class enableNextButton

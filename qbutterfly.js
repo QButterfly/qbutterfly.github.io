@@ -1,4 +1,4 @@
-const debug = true;
+const debug = false;
 
 function log(message) {
   if (debug) { 
@@ -16,26 +16,19 @@ var qualtricsURL;
     var filename = url.substring(url.lastIndexOf('/')+1);
   
   
-  /*  parent.postMessage(
+     parent.postMessage(
       {
         id:		filename,
         currentTime: 	Date.now(),
       },
       qualtricsURL); 
-    log("Message sent: " + filename);  */
+    log("Message sent: " + filename); 
     
     function disableBack() { 
       window.history.forward(); 
     }
     window.onload = function () {
       disableBack();
-      parent.postMessage(
-        {
-          id:		filename,
-          currentTime: 	Date.now(),
-        },
-        qualtricsURL); 
-        log("Message sent: " + filename);
     }
     window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });

@@ -55,7 +55,7 @@ $(document).click(function(e) {
     eventText = e.target.id;
   }
   else {
-    eventText = e.target.nodename;
+    eventText = e.target.type;
   }
   log("Click: " + eventText);
   // Checks if clicked item has class enableNextButton

@@ -42,7 +42,7 @@ var filename;
 });
 
 $(window).on("load",function() {
-  var msg = "load_" + filename;
+  var msg = "complete_" + filename;
   parent.postMessage(
     {
       id:		msg,

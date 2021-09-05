@@ -33,6 +33,8 @@ function disableBack() {
 
 $(window).on("load",function() {
   var msg = "load_" + filename;
+  // If html { visibility:hidden; } in CSS of page make visible if all content has beed loaded
+  document.getElementsByTagName("html")[0].style.visibility = "visible";
   parent.postMessage(
     {
       id:		msg,

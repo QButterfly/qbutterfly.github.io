@@ -42,6 +42,15 @@ Add JQuery and qbutterfly.js to each html page. Afterwards add an id (e.g., "MyL
     <a id="MyLink" href="https://www.w3schools.com/">Visit W3Schools.com!</a>
 </body>
 ```
+If you want to assure that the user is only able to see the webpage when it is fully loaded and cannot interact with it beforehand additionally add the following line of code.
+
+```html
+<head>
+    <style>html { visibility:hidden; }</style>
+ ...
+</head>
+```
+QButterfly will then switch the page to visible once the window.onload event is fired, i.e. all css, images etc. are loaded.
 
 ### Re-enable the Qualtrics next button after website presentation
 

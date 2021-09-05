@@ -34,7 +34,8 @@ function disableBack() {
 $(window).on("load",function() {
   var msg = "load_" + filename;
   // If html { visibility:hidden; } in CSS of page make visible if all content has beed loaded
-  // document.getElementsByTagName("html")[0].style.visibility = "visible";
+  // This is useful if you to make sure that the user cannot skip the on load event by interacting with the page
+  document.getElementsByTagName("html")[0].style.visibility = "visible";
   parent.postMessage(
     {
       id:		msg,

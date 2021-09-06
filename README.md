@@ -30,18 +30,27 @@ Your website https://www.mywebsite.com/index.html will be display as an window w
 
 First, deploy your webpage and embed butterfly. For an example see butterfly_example.html in the example folder.
 
-Add JQuery and qbutterfly.js to each html page. qbutterfly.js must be added right before the closing body tag. Afterwards add an id (e.g., "MyLink") to the objects you want to track. Replace https://abcd.eu.qualtrics.com with the name of your own Qualtrics domain that you are using to run surveys. The following code will react on a click on a hyperlink with the id MyLink. 
+Add JQuery and qbutterfly.js to each html page. Afterwards add an id (e.g., "MyLink") to the objects you want to track. Replace https://abcd.eu.qualtrics.com with the name of your own Qualtrics domain that you are using to run surveys. The following code will react on a click on a hyperlink with the id MyLink. 
 
 ```html
 <head>
  <title>demo</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script type="text/javascript" src="qbutterfly.js" qualtricsURL="https://abcd.eu.qualtrics.com"></script>    
 </head>
 <body>
     <a id="MyLink" href="https://www.w3schools.com/">Visit W3Schools.com!</a>
-    <script type="text/javascript" src="qbutterfly.js" qualtricsURL="https://abcd.eu.qualtrics.com"></script>    
 </body>
 ```
+If you want to assure that the user is only able to see the webpage when it is fully loaded and cannot interact with it beforehand additionally add the following line of code.
+
+```html
+<head>
+    <style>html { visibility:hidden; }</style>
+ ...
+</head>
+```
+QButterfly will then switch the page to visible once the window.onload event is fired, i.e. all css, images etc. are loaded.
 
 ### Re-enable the Qualtrics next button after website presentation
 
@@ -76,9 +85,9 @@ QButterfly writes the data to the embedded variable named "collectedData". In Qu
 This is an example of the format of the recorded data:
 
 ```html
-1629802674592#page1.html; 1629802676308#Button1; 1629802677011#Button2; 1629802678183#Checkbox1; 1629802679663#Button1; 1629802680435#Checkbox1;
+1630841029899#ready_control.html; 1630841029900#load_control.html; 1630841031050#Button1; 1630841031978#Checkbox1; 1630841033034#Button2; 1630841033870#undefined;
 ```
 
-Each event comes with a timestamp (milliseconds since 01.01.1970 00:00:00 UTC) and an event ID (e.g., 1629802677011#Button2) separated by #. Events are separated via ";". Each webpage will generate an event with its name when it is loaded in the browser. Each click on an element with the class reactOnClick will generate an event, too (e.g., 1629802676308#Button1). Checkboxes will generate two events with the same ID if pressed twice (e.g., 1629802678183#Checkbox1; 1629802680435#Checkbox1;).
+Each event comes with a timestamp (milliseconds since 01.01.1970 00:00:00 UTC) and an event ID (e.g., 1629802677011#Button2) separated by #. Events are separated via ";". Each webpage will generate an event with its name when a) its ready ("ready_ ...") and a user can interact and afterwards b) all images, etc. are fully are loaded ("load_..."). Each click on an element will generate an event, too (e.g., 1629802676308#Button1). If the html elments do not have an ID tag assigned to them these events will be "undefined".
 
 To analzye the data, you can, for example, export it from Qualtrics and import it into MS Excel. You can use simple Excel functions to analyze if specific elements have been clicked or to calculate the time between two clicks. Afterwards you can import your analysis results together with other participant data in your statistics package.

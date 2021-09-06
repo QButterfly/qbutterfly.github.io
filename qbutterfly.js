@@ -52,6 +52,7 @@ $(document).click(function(e) {
     eventText = e.target.id;
   }
   else {
+    // If you did not place an id or placed it incorrectly the following event will be generated
     eventText = "UndefinedClick";
   }
   log("Click: " + eventText);

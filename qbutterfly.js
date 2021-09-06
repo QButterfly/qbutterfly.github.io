@@ -52,7 +52,7 @@ $(document).click(function(e) {
     eventText = e.target.id;
   }
   else {
-    eventText = e.target.type;
+    eventText = "UndefinedClick";
   }
   log("Click: " + eventText);
   // Checks if clicked item has class enableNextButton

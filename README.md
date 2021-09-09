@@ -93,8 +93,8 @@ Each event comes with a timestamp (milliseconds since 01.01.1970 00:00:00 UTC) a
 To analzye the data, you can, for example, export it from Qualtrics and import it into MS Excel. You can use simple Excel functions to analyze if specific elements have been clicked or to calculate the time between two clicks. Afterwards you can import your analysis results together with other participant data in your statistics package.
 
 The Excel functions are based on regular expressions. They are implemented via VBA.
-- (1) This file contains the functions as macros: qbutterfly_excel_template.xlsm 
-- (2) The file contains just the VBA source code: qbutterfly_excel_analysis_vba.txt 
+- This file contains the functions as macros: qbutterfly_excel_template.xlsm 
+- The file contains just the VBA source code: qbutterfly_excel_analysis_vba.txt 
 
 You can copy your eventStream into file (1) to anaylze your data. Alternatively you use the regular expressions from file (2) and use the to analyze the eventStream with your own tools.
 

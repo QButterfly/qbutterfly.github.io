@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <style>html { visibility:hidden; }</style>
   <title>demo</title>
   <!-- Bootstrap CSS - just used for this example -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -9,6 +10,8 @@
     
       <!-- include JQuery for Butterfly script first-->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <!-- afterwards include Butterfly JavaScript -->
+      <script type="text/javascript" src="qbutterfly.js" qualtricsURL="https://immzhaw.eu.qualtrics.com"></script>  
 </head>
 <body>
     <!-- Bootstrap Example -->
@@ -18,22 +21,22 @@
     If you click a button or checkbox this is recorded by Qualtrics. Button2 will also enable the hidden "Next" button at the bottom of the screen.
     <br>
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-      <button type="button" class="btn btn-danger">
-        <div id="Button1" class="reactOnClick">Button</div>
+   
+      <button type="button" id="Button1" class="btn btn-danger reactOnClick">
+      Button1
       </button>
-      <button type="button" class="btn btn-warning">
-        <!-- Use enableNextButton in additon to reactOnClick to enable the Qualtrics next button -->
-        <div id="Button2" class="reactOnClick enableNextButton">Button2</div>
-      </button>
-    </div>
-    <br><br>
-    <div class="form-check">
-      <input class="reactOnClick form-check-input" type="checkbox" value="" id="Checkbox1">
-      <label class="form-check-label" for="Checkbox1">
-        Checkbox
-      </label>
-    </div>
-     <!-- afterwards include Butterfly JavaScript -->
-     <script type="text/javascript" src="qbutterfly.js" qualtricsURL="https://immzhaw.eu.qualtrics.com"></script>  
+       <button type="button" id="Button2" class="btn btn-warning reactOnClick enableNextButton">
+      <!-- Use enableNextButton in additon to reactOnClick to enable the Qualtrics next button -->
+      Button2
+    </button>
+  </div>
+  <br><br>
+  <div class="form-check">
+    <input class="reactOnClick form-check-input" type="checkbox" value="" id="Checkbox1">
+    <label class="form-check-label" for="Checkbox1">
+      Checkbox
+    </label>
+  </div>
+     
 </body>
 </html>

@@ -16,20 +16,25 @@ Qualtrics.SurveyEngine.addOnload(function (){
 	jQuery(".Skin .QuestionText").attr("style", "padding-top: 0");
 	
 	// initialize the collectable data
-	var collectedData = "";
+	var eventStream = "";
 
 	// register callback handleMessage, when a message from the iFrame is received
 	if (window.addEventListener) {
 		window.addEventListener("message", handleMessage);
-		console.log("addEventListener");
+		console.log("addEventListener active");
 	} else {
 		window.attachEvent("onmessage", handleMessage);
-		console.log("attachEvent");
+		console.log("attachEvent active");
 	}
 
+	// create the iframe only after the addEventListner is active to not miss events
+	var createiFrame = '<iframe frameborder="${e://Field/windowBorder}" height="${e://Field/windowHeight}" scrolling="${e://Field/windowScroll}" src="${e://Field/windowURL}" width="${e://Field/windowWidth}"></iframe>';
+	
+	jQuery("#Header").html(createiFrame);
+		
 	// Callback-Function for the iFrame-message
 	function handleMessage(event) {
-		console.log("handleMessage");
+		console.log("Message from iframe received from: " + event.origin);
 		if (event.origin != windowOrigin) {
 			console.log("The message came from some site we don't know. We're not processing it.");
 			return;
@@ -38,10 +43,11 @@ Qualtrics.SurveyEngine.addOnload(function (){
 		var dataFromChildIframe = event.data;
 
 		// Add the current Time and the id to the collectedData-String 
-		collectedData += dataFromChildIframe.currentTime + "#" + dataFromChildIframe.id + "; ";
+		eventStream += dataFromChildIframe.currentTime + "#" + dataFromChildIframe.id + "; ";
+
 		
 		// Write the collectedData-String to an embedded field
-		Qualtrics.SurveyEngine.setEmbeddedData("collectedData", collectedData);
+		Qualtrics.SurveyEngine.setEmbeddedData("eventStream", eventStream);
 
 		// Shows the next button, if user clicked on an element with class enableNextButton
 		if(dataFromChildIframe.enableNextButton){

@@ -1,52 +1,72 @@
-var qualtricsURL;
-  
- // disable for going back in Browser
-	$(document).ready(function() {
-    var timestamp = Date.now();
-    qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
-    var url = window.location.pathname;
-    var filename = url.substring(url.lastIndexOf('/')+1);
-   
-    function disableBack() { window.history.forward() }
+const debug = false;
 
-    window.onload = disableBack();
-    window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
-   
-    // Send data to the parent window
+function log(message) {
+  if (debug) { 
+    console.log(message);
+  }
+}
+
+var qualtricsURL;
+var url;
+var filename;
+
+function disableBack() { 
+  window.history.forward(); 
+}
+
+	$(document).ready(function() {
+    qualtricsURL = $('script[qualtricsURL][qualtricsURL!=null]'). attr('qualtricsURL');
+    url = window.location.pathname;
+    filename = url.substring(url.lastIndexOf('/')+1);
+    var msg = "ready_" + filename;
+
     parent.postMessage(
       {
-        id:		filename,
-        currentTime: 	timestamp,
+        id:		msg,
+        currentTime: 	Date.now(),
       },
-      qualtricsURL);
-
+      qualtricsURL); 
+    log("Document Ready Msg: " + msg); 
+    
+    window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
 });
 
-// init a variable for saving the last id (because of checkbox firing two times)
-var lastIdSubmitted;
-
-$(".reactOnClick").click(function(e) {
-// check if reactOnClick for the second time on same element (because of checkbox firing two times)
-if(typeof lastIdSubmitted === 'undefined' || lastIdSubmitted !== this.id){
-  // Get current date
-  var timestamp = Date.now();
-  
-  // Checks if clicked item has class enableNextButton
-  var enableNextButton = this.className.indexOf("enableNextButton") >= 0;
-  
-  // Send data to the parent window
+$(window).on("load",function() {
+  var msg = "load_" + filename;
+  // If html { visibility:hidden; } in CSS of page make visible if all content has beed loaded
+  // This is useful if you to make sure that the user cannot skip the on load event by interacting with the page
+  document.getElementsByTagName("html")[0].style.visibility = "visible";
   parent.postMessage(
     {
-      id:		this.id,
-      currentTime: 	timestamp,
-      enableNextButton: enableNextButton,
+      id:		msg,
+      currentTime: 	Date.now(),
     },
-    qualtricsURL);
+    qualtricsURL); 
+  log("Window OnLoad Msg: " + msg); 
+  disableBack();
+}) 
+
+
+$(document).click(function(e) {
+  if (e.target.id) {
+    eventText = e.target.id;
+  }
+  else {
+    // If you did not place an id or placed it incorrectly the following event will be generated 
+    eventText = "UndefinedClick";
+  }
+  log("Click: " + eventText);
+  // Checks if clicked item has class enableNextButton
+  var enableNextButton = $(e.target).hasClass('enableNextButton');
+  log("EnableNext: " + enableNextButton);
+  // Send data to the parent window
   
-  // save the actual id (because of checkbox firing two times)
-  lastIdSubmitted = this.id;
-} else {
-  // set the last id to some dummy value (because of checkbox firing two times, but when user activates it again, this should be reported)
-   lastIdSubmitted = "dummyId";
-}
+  parent.postMessage(
+    {
+      id:		eventText,
+      currentTime: 	Date.now(),
+      enableNextButton: enableNextButton,
+    }, 
+    qualtricsURL);
+  log("Message sent: " + eventText);   
 });

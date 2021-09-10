@@ -96,7 +96,7 @@ The Excel functions are based on regular expressions. They are implemented via V
 - This file contains the functions as macros: qbutterfly_excel_template.xlsm 
 - The file contains just the VBA source code: qbutterfly_excel_analysis_vba.txt 
 
-You first need to activate [regular expressions in VBA for Excel](https://stackoverflow.com/questions/22542834/how-to-use-regular-expressions-regex-in-microsoft-excel-both-in-cell-and-loops). You can copy your eventStream into file (1) to anaylze your data. Alternatively you use the regular expressions from file (2) and use the to analyze the eventStream with your own tools.
+You first need to activate [regular expressions in VBA for Excel](https://stackoverflow.com/questions/22542834/how-to-use-regular-expressions-regex-in-microsoft-excel-both-in-cell-and-loops). You can copy your eventStream into file (1) to analyze your data. Alternatively you use the regular expressions from file (2) and use the to analyze the eventStream with your own tools.
 
 The following functions are implemented in VBA:
 - countEvent(Cell, Event_ID)	Return the number of occurrences of a specific user event (e.g., MyLink) in a cell

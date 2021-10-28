@@ -91,3 +91,15 @@ This is an example of the format of the recorded data:
 Each event comes with a timestamp (milliseconds since 01.01.1970 00:00:00 UTC) and an event ID (e.g., 1629802677011#Button2) separated by #. Events are separated via ";". Each webpage will generate an event with its name when a) its ready ("ready_ ...") and a user can interact and afterwards b) all images, etc. are fully are loaded ("load_..."). Each click on an element will generate an event, too (e.g., 1629802676308#Button1). If the html elments do not have an ID tag assigned to them these events will be "UndefinedClick".
 
 To analzye the data, you can, for example, export it from Qualtrics and import it into MS Excel. You can use simple Excel functions to analyze if specific elements have been clicked or to calculate the time between two clicks. Afterwards you can import your analysis results together with other participant data in your statistics package.
+
+The Excel functions are based on regular expressions. They are implemented via VBA.
+- This file contains the functions as macros: qbutterfly_excel_template.xlsm 
+- The file contains just the VBA source code: qbutterfly_excel_analysis_vba.txt 
+
+You first need to activate [regular expressions in VBA for Excel](https://stackoverflow.com/questions/22542834/how-to-use-regular-expressions-regex-in-microsoft-excel-both-in-cell-and-loops). You can copy your eventStream into file (1) to analyze your data. Alternatively you use the regular expressions from file (2) and use the to analyze the eventStream with your own tools.
+
+The following functions are implemented in VBA:
+- countEvent(Cell, Event_ID)	Return the number of occurrences of a specific user event (e.g., MyLink) in a cell
+- countEventPattern(Cell, Event_ID_1, …)	Returns the number of occurrences of a specific sequence of user events (e.g., MyLink1, MyLink2) in a cell.
+- timestamp(Cell, Event_ID, occurrence)	Returns the timestamp (ms since 01.01.1970 00:00:00 UTC) of the n-th occurrence of a specific event. 
+

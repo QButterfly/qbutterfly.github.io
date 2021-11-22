@@ -9,10 +9,6 @@ Qualtrics is used to conveniently manage the overall study flow including consen
 
 A demo of QButterfly is available [here.](https://immzhaw.eu.qualtrics.com/jfe/form/SV_887kj9vYpIqnBfU) 
 
-Please cite as:
-
-Ebert, N., Scheppler, B. 2021. QButterfly: a lightweight approach for webtracking with Qualtrics, doi:10.5281/zenodo.5211544
-
 ## Quick start
 
 ### Import qbutterfly_template.qsf

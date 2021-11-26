@@ -9,6 +9,8 @@ Qualtrics is used to conveniently manage the overall study flow including consen
 
 A demo of QButterfly is available [here.](https://immzhaw.eu.qualtrics.com/jfe/form/SV_887kj9vYpIqnBfU) 
 
+Please cite as Ebert, N.; Scheppler, B.; Ackermann, K.; Geppert, T. (2021): QButterfly: Lightweight Open-Source Software for Controlled Online User Studies with Qualtrics, https://qbutterfly.github.io/
+
 ## Quick start
 
 ### Import qbutterfly_template.qsf
